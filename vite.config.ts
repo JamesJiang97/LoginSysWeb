@@ -9,6 +9,8 @@ export default defineConfig({
     host: false
   },
 
+  base:'/LoginSysWeb/',
+
   resolve:{
     alias: [
       { find: '@', replacement: path.resolve(__dirname, '/src') }

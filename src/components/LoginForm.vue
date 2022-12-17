@@ -183,8 +183,8 @@ a {
 
 button {
 	border-radius: 20px;
-	/* border: 1px solid #FF4B2B; */
-	background-color: linear-gradient( 90deg, #CC2C6C 0%, #FFCEBF 100%);
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;

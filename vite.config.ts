@@ -10,6 +10,8 @@ export default defineConfig({
   },
 
   // base:'/LoginSysWeb/',
+  base: process.env.NODE_ENV === 'production' ? '/LoginSysWeb/' : './',
+
 
   resolve:{
     alias: [

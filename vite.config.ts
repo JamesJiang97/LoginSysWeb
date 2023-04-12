@@ -9,7 +9,7 @@ export default defineConfig({
     host: false
   },
 
-  base:'/LoginSysWeb/',
+  // base:'/LoginSysWeb/',
 
   resolve:{
     alias: [

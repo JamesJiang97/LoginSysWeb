@@ -6,25 +6,25 @@ import { apiVerifyToken } from '@/apis/VerifyToken'
 
 const routes = [
     {
-        path: '/LoginSysWeb',
+        path: '/',
         name: 'Login',
         component: LoginForm
     },
 
     {
-        path: '/LoginSysWeb/MyPage',
+        path: '/MyPage',
         name: 'MyPage',
         component: MyPage
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.path == '/LoginSysWeb') {
+    if (to.path == '/') {
         localStorage.removeItem('token')
         localStorage.removeItem('userName')
         localStorage.removeItem('userId')
@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
         let userToken = localStorage.getItem('token')
         if (userToken == null || userToken == '') {
             alert("Please sign in");
-            return next('/LoginSysWeb');
+            return next('/');
         } else {
             apiVerifyToken().then((response)=>{
                 if(response.data.code == 200){
@@ -43,7 +43,7 @@ router.beforeEach((to, from, next) => {
                     localStorage.removeItem('userName')
                     localStorage.removeItem('userId')
                     alert("Please sign in");
-                    return next('/LoginSysWeb');
+                    return next('/');
                 }
             })
         }

@@ -12,7 +12,7 @@ const routes = [
     },
 
     {
-        path: '/MyPage',
+        path: '/mypage',
         name: 'MyPage',
         component: MyPage
     },
@@ -23,6 +23,7 @@ const router = createRouter({
     routes,
 })
 
+
 router.beforeEach((to, from, next) => {
     if (to.path == '/') {
         localStorage.removeItem('token')
@@ -31,6 +32,7 @@ router.beforeEach((to, from, next) => {
         next()
     } else {
         let userToken = localStorage.getItem('token')
+        // console.log(userToken)
         if (userToken == null || userToken == '') {
             alert("Please sign in");
             return next('/');

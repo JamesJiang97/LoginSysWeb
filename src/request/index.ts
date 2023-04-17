@@ -3,12 +3,11 @@ import axios from 'axios'
 
 const service = axios.create({
 	baseURL: 'https://my-loginsys-service.herokuapp.com/users',
-	// baseURL: 'http://localhost:8080/users'
+	// baseURL: 'http://localhost:8080/users',
 	timeout: 60000, 
 	withCredentials: true,
 	headers: {
 		'Content-Type': 'application/json',
-		'token': localStorage.getItem('token'),
 		'X-Requested-With': 'XMLHttpRequest',
 	},
 })
@@ -16,6 +15,8 @@ const service = axios.create({
 // 添加请求拦截器
 service.interceptors.request.use(
 	function (config) {
+		// 在发送请求之前做些什么
+		config.headers.token = localStorage.getItem('token')
 		return config
 	},
 	function (error) {
